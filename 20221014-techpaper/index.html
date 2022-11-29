@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>技术白皮书 | PEX • 永存证</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="多角色、去中心的加密存证与权益合约   模块架构 数字内容：任意的原生数字内容（例如文字、图片、视频等）或物质实体（手工作品、艺术品、建筑物等）的数字孪生内容 去中心化内容寻址存储系统：例如 IPFS (The Interplanetary File System) 或 Arweave，能够去中心地、永久地、机密地存储数字内容，并通过独一无二、不可篡改的内容地址(CID)访问。也可降级为普通互联网">
+<meta property="og:type" content="article">
+<meta property="og:title" content="技术白皮书">
+<meta property="og:url" content="https://pex-blog.tic.cc/20221014-techpaper/index.html">
+<meta property="og:site_name" content="PEX • 永存证">
+<meta property="og:description" content="多角色、去中心的加密存证与权益合约   模块架构 数字内容：任意的原生数字内容（例如文字、图片、视频等）或物质实体（手工作品、艺术品、建筑物等）的数字孪生内容 去中心化内容寻址存储系统：例如 IPFS (The Interplanetary File System) 或 Arweave，能够去中心地、永久地、机密地存储数字内容，并通过独一无二、不可篡改的内容地址(CID)访问。也可降级为普通互联网">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pex-blog.tic.cc/images/20221014-%E5%8A%A0%E5%AF%86%E5%AD%98%E8%AF%81%E6%8A%80%E6%9C%AF%E6%A8%A1%E5%9E%8B.drawio.png">
+<meta property="article:published_time" content="2022-09-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-28T01:15:29.424Z">
+<meta property="article:author" content="PEX Team">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pex-blog.tic.cc/images/20221014-%E5%8A%A0%E5%AF%86%E5%AD%98%E8%AF%81%E6%8A%80%E6%9C%AF%E6%A8%A1%E5%9E%8B.drawio.png">
+  
+    <link rel="alternate" href="/atom.xml" title="PEX • 永存证" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">PEX • 永存证</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://pex-blog.TIC.CC"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-20221014-techpaper" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/20221014-techpaper/" class="article-date">
+  <time datetime="2022-09-19T16:00:00.000Z" itemprop="datePublished">2022-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      技术白皮书
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center><h1>多角色、去中心的加密存证与权益合约</h1></center>
+
+<p><img src="../images/20221014-%E5%8A%A0%E5%AF%86%E5%AD%98%E8%AF%81%E6%8A%80%E6%9C%AF%E6%A8%A1%E5%9E%8B.drawio.png" alt="架构图"></p>
+<h2 id="模块架构"><a href="#模块架构" class="headerlink" title="模块架构"></a>模块架构</h2><ul>
+<li>数字内容：任意的原生数字内容（例如文字、图片、视频等）或物质实体（手工作品、艺术品、建筑物等）的数字孪生内容</li>
+<li>去中心化内容寻址存储系统：例如 IPFS (The Interplanetary File System) 或 Arweave，能够去中心地、永久地、机密地存储数字内容，并通过独一无二、不可篡改的内容地址(CID)访问。也可降级为普通互联网，使用普通的 URL 作为内容地址。</li>
+<li>多角色加密存证与权益合约：简称加密存证，是将内容地址进行多角色公私钥加密，证明原始内容的存在性，并约定多角色权益合约的一段数据及代码。可类比于区块链的一个区块。<ul>
+<li>多角色：围绕一种数字资产，通常具有多种不同的用户画像，例如铸造者、所有者、使用者、代理者、等等。</li>
+<li>加密存证：对内容地址，使用多种角色各自的公钥进行加密，只有该角色本人能够使用自己的私钥进行解密。<ul>
+<li>可使用类似比特币的解锁脚本：<code>&lt;sig pubkey&gt; &lt;dup hash160 pubkeyhash equal checksig&gt;</code>（其中 sig 是对加密地址的签名） 来验证主人身份以及数字内容的存在性。</li>
+</ul>
+</li>
+<li>权益合约：对不同的角色，权益合约定义了某角色的权益范围和条件，可以是价格、谜语、限额、代码等多种形式。例如，<ul>
+<li>所有权合约：定义了所有权的获取、转让、期限、分成等约定，例如最简单的是一个价格。则有意愿获得所有权的人，必须支付给前任所有权人相应的金额，才能转让资产所有权给下一任所有权人。</li>
+<li>使用权合约：定义了使用权的获取、转让、期限等约定。例如最简单的是一个价格，则想要使用该资产的人，必须支付相应的费用，才能获得使用权，即可解密该存证，获取并使用该资产。</li>
+<li>代理权合约：定义了代理权的获取、转让、期限、分成等约定。接受用户委托，为铸造、加解密、使用、交易、合约验资等行为，提供随时随地的自动化服务，并按照约定获得相应的服务费，从而能够持续为用户提供更好的服务。</li>
+<li>包括但不限于上述角色，围绕资产还可有更多的细分或延展角色，例如经营权合约、处分权合约，等等。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>存证账本：记录加密存证的公开账本，可用专用的区块链或 NFT 智能合约实现。也可降级为普通数据库，甚至纸质账本。</li>
+<li>公证机：与外部世界对接，对权益合约进行公开验证的服务，可用区块链、零知识证明、预言机或其他去中心化验证技术来实现，也可降级为普通的银行、公证等传统中心信源。</li>
+<li>代理机：（由于普通用户不可能时刻在线响应）接受用户委托，为铸造、加解密、使用、交易、合约验资等行为，提供随时随地的自动化服务。例如作为一个去中心化应用 Dapp，或者降级为一个普通互联网的传统应用平台。</li>
+</ul>
+<h2 id="铸造流程"><a href="#铸造流程" class="headerlink" title="铸造流程"></a>铸造流程</h2><ol>
+<li>把数字内容存入去中心化内容寻址存储系统，获得一个内容地址。例如，在 IPFS 中以内容哈希作为地址，通过分布式哈希表 DHT、内容寻址(Content Addressing)等技术，使得地址和内容形成量子纠缠一样的双向一一映射效果。</li>
+<li>对内容地址进行多角色公私钥加密，生成一段加密存证数据，数据包括<ul>
+<li>对内容地址进行单向函数(one-way function)运算，获得地址索引。例如，进行再次哈希。</li>
+<li>铸造者本人，使用自己的公钥，对内容地址进行加密，得到铸造者加密地址。</li>
+<li>所有权人使用自己的公钥，对内容地址进行加密，得到所有者加密地址。</li>
+<li>代理机使用自己的公钥，对内容地址进行加密，得到代理机加密地址。</li>
+<li>为了允许所有权转让，绑定一份所有权合约。例如一份最简单的所有权合约：”向前任所有权人支付 1000 元”。</li>
+<li>为了允许该数字内容被其他用户所访问使用，绑定一份使用权合约。例如一份最简单的使用权合约：”向当前所有权人支付 1 元”。</li>
+<li>在这个技术框架内，可自由添加更多角色的权益合约。</li>
+<li>在这个技术框架内，可使用更复杂的加密算法，例如多人联合加密等。</li>
+</ul>
+</li>
+<li>将上述形成的存证数据文件，也存入去中心化内容寻址存储系统，获得一个存证地址。</li>
+<li>把存证地址及其当前所有者记录到一个存证帐本中。通过公开的存证账本，可检索到任意存证并验证原始数字内容的存在。但是只有拥有相应权限的角色，才能够使用自己的私钥解开存证里的内容地址，最终访问到原始数字内容。</li>
+</ol>
+<h2 id="铸造者访问流程"><a href="#铸造者访问流程" class="headerlink" title="铸造者访问流程"></a>铸造者访问流程</h2><ol>
+<li>铸造者通过代理机（例如一个去中心化应用 Dapp）浏览存证账本。</li>
+<li>铸造者通过代理机，访问去中心化内容寻址系统，读取一个自己铸造的存证。</li>
+<li>由于该存证中的铸造者加密地址是用该铸造者的公钥加密的，铸造者可以用自己的私钥，直接解密获得内容地址。</li>
+<li>铸造者访问去中心化内容寻址系统，读取原始数字内容。</li>
+</ol>
+<h2 id="使用者访问流程"><a href="#使用者访问流程" class="headerlink" title="使用者访问流程"></a>使用者访问流程</h2><ol>
+<li>使用者通过代理机（例如一个去中心化应用 Dapp）浏览存证账本。</li>
+<li>使用者通过代理机，访问去中心化内容寻址系统，读取一个自己感兴趣的存证。</li>
+<li>使用者按照该存证中的使用权合约的要求，去其他环境中执行该合约。例如，该合约要求：”向当前所有权人的账号 xxx 支付 1 元人民币”，于是使用者向所有权人的指定账号支付 1 元人民币。</li>
+<li>使用者通过代理机，要求验证自己的权益。代理机向公证机发出请求，公证机通过内建验证机制（区块链预言机等），确认该使用者已达成使用权合约。</li>
+<li>代理机使用自己的私钥，解开代理机加密地址，从去中心化内容寻址存储系统中读取原始数字内容，返回给使用者。</li>
+</ol>
+<h2 id="所有权转让流程"><a href="#所有权转让流程" class="headerlink" title="所有权转让流程"></a>所有权转让流程</h2><ol>
+<li>用户通过代理机浏览存证账本。</li>
+<li>用户通过代理机，访问去中心化内容寻址系统，读取一个自己感兴趣的存证。</li>
+<li>用户按照该存证中的所有权合约的要求，去其他环境中执行该合约。例如，该合约要求：”向当前所有权人的地址 xxx 支付 1 比特币”，于是该用户向当前所有权人的指定账号支付 1 个比特币。</li>
+<li>用户通过代理机向公证机发出请求，公证机通过内建验证机制（区块链预言机等），确认该用户已达成所有权合约。</li>
+<li>代理机创建新的存证，把当前用户记录为新任所有权人，存入去中心化内容寻址系统，记入存证账本。</li>
+</ol>
+<br>
+<h6 align="right">LU@无锡远近科技有限公司</h6>
+<h6 align="right">Mobile: 15295439901</h6>
+<h6 align="right">Email: lukerlu@hotmail.com</h6>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://pex-blog.tic.cc/20221014-techpaper/" data-id="clb0ai4qo0002g0gqalft4xnf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/20220920-whitepaper/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          永存证白皮书
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2099/01/">January 2099</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/20990101-links/">导航目录</a>
+          </li>
+        
+          <li>
+            <a href="/20220920-whitepaper/">永存证白皮书</a>
+          </li>
+        
+          <li>
+            <a href="/20221014-techpaper/">技术白皮书</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 PEX Team<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
